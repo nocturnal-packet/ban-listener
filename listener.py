@@ -24,9 +24,9 @@ async def on_member_ban(guild, user):
     except discord.Forbidden:
         pass               # DMs closed or bot blocked
 
-    async for entry in guild.audit_logs(action=discord.AuditLogAction.ban, limit=1):
-        if entry.target.id == user.id and APPEAL_URL not in (entry.reason or ""):
-            new_reason = f"{entry.reason or 'No reason'} • Appeal: {APPEAL_URL}"
-            await entry.edit(reason=new_reason)
+#    async for entry in guild.audit_logs(action=discord.AuditLogAction.ban, limit=1):
+#        if entry.target.id == user.id and APPEAL_URL not in (entry.reason or ""):
+#            new_reason = f"{entry.reason or 'No reason'} • Appeal: {APPEAL_URL}"
+#            await entry.edit(reason=new_reason)
 
 bot.run(TOKEN)
